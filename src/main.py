@@ -1,11 +1,18 @@
-loan_principal = 'Loan principal: 1000'
-final_output = 'The loan has been repaid!'
-first_month = 'Month 1: repaid 250'
-second_month = 'Month 2: repaid 250'
-third_month = 'Month 3: repaid 500'
+print("Enter the loan principal:")
+loan_input = input()
 
-print(loan_principal)
-print(first_month)
-print(second_month)
-print(third_month)
-print(final_output)
+print("What do you want to calculate?")
+print('type "m" - for number of monthly payments,')
+print('type "p" - for the monthly payment:')
+type_input = input()
+
+if type_input == "m":
+	print("Enter the monthly payment")
+	monthly_input = input()
+	months_needed = loan_input / monthly_input
+	print(f"It will take {monthly_needed} months to repay the loan")
+else:
+	print("Enter the number of months")
+	months_input = input()
+	monthly_payment = loan_input / months_input
+	print(f"Your monthly payment = {monthly_paymen}t")
