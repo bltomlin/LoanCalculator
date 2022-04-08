@@ -1,18 +1,29 @@
-print("Enter the loan principal:")
-loan_input = input()
+"""
+This file contains the main entry point for the program that
+dictates all logical flow.
+"""
+from src import period_calculator, how_long_calculator
 
-print("What do you want to calculate?")
-print('type "m" - for number of monthly payments,')
-print('type "p" - for the monthly payment:')
-type_input = input()
+def loan_calculator():
+	"""
+	Entry point for program.
 
-if type_input == "m":
-	print("Enter the monthly payment")
-	monthly_input = input()
-	months_needed = loan_input / monthly_input
-	print(f"It will take {monthly_needed} months to repay the loan")
-else:
-	print("Enter the number of months")
-	months_input = input()
-	monthly_payment = loan_input / months_input
-	print(f"Your monthly payment = {monthly_paymen}t")
+	:return: void
+	"""
+
+	print("Enter the loan principal:")
+	loan_input = int(input())
+
+	print("What do you want to calculate?")
+	print('type "m" - for number of monthly payments,')
+	print('type "p" - for the monthly payment:')
+	type_input = str(input())
+
+	if type_input == "m":
+		period_calculator()
+	else:
+	    how_long_calculator(loan_input)
+	    
+
+if __name__ == '__main__':
+    honest_calculator()
