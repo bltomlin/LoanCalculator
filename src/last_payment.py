@@ -4,14 +4,16 @@ which is used if the remaining balance is less that the fixed monthly
 payment.
 """
 
-def last_payment(loan_input, months_input, monthly_payment):
+import math
+
+def last_payment(loan_input, n, i):
 	"""
-	Calculates payment for the last month. 
-	
-	:param loan_input: dollar amount of the loan
-	:param months_input: user entered months desired to pay off loan
-	:param monthly_payment: calculated fixed monthly pay rate
-	:return: calculated last month payment
+	Calculates last payment.
+
+	:param: loan_input: principal loan
+	:param: n: number of payments on the loan
+	:param: i: monthly interest rate
+	:return: calculated last payment
 	"""
-	last_payment = loan_input - (months_input - 1) * monthly_payment
+	last_payment = math.ceil(loan_input - (n - 1) * i)
 	return last_payment
