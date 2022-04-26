@@ -2,6 +2,7 @@
 This file contains the main entry point for the program that
 dictates all logical flow.
 """
+import argparse
 from src import what_calculate, number_of_payments_calculator, ordinary_annuity_calculator, loan_principal_calculator
 
 def loan_calculator():
