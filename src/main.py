@@ -11,6 +11,8 @@ def loan_calculator():
 
 	:return: void
 	"""
+	parser = argparse.ArgumentParser(description="This program prints computed payments for a simple loan.")
+
 	type_input = what_calculate()
 	
 	if type_input == "n":
