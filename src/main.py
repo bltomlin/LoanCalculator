@@ -11,40 +11,39 @@ def loan_calculator():
 
 	:return: void
 	"""
-	parser = argparse.ArgumentParser(description="This program prints computed payments for a simple loan.")
+	parser = argparse.ArgumentParser(description="This program calculates loan payments.")
+	parser.add_argument("type", "--payment", "--principal", "--periods", "--interest") 
+	if args.type == "annuity":
+		if type_input == "n":
+			print("Enter the loan principal:")
+			loan_input = int(input())
+			print("Enter the monthly payment:")
+			n = int(input())
+			print("Enter the loan interest:")
+			i = float(input())
+			number_of_payments = math.ceil(number_of_payments_calculator(loan_input, n , i))
+			remainder = int(number_of_payments % 12)
+			years = int(number_of_payments / 12)
+			print(f"It will take {years} years and {remainder} months to repay this loan!")
+		elif type_input == "a":
+			print("Enter the loan principal:")
+			loan_input = int(input())
+			print("Enter the number of periods:")
+			n = int(input())
+			print("Enter the loan interest:")
+			i = float(input())
+			orindary_annuity = ordinary_annuity_calculator(loan_input, n , i)
+			print(f"Your monthly payment = {orindary_annuity}")
+		else:
+			print("Enter the annuity payment:")
+			annuity_input = float(input())
+			print("Enter the number of periods:")
+			n = int(input())
+			print("Enter the loan interest:")
+			i = float(input())
+			loan_principal = loan_principal_calculator(annuity_input, n , i)
+			print(f"Your loan principal = {loan_principal}!")
 
-	type_input = what_calculate()
-	
-	if type_input == "n":
-		print("Enter the loan principal:")
-		loan_input = int(input())
-		print("Enter the monthly payment:")
-		n = int(input())
-		print("Enter the loan interest:")
-		i = float(input())
-		number_of_payments = math.ceil(number_of_payments_calculator(loan_input, n , i))
-		remainder = int(number_of_payments % 12)
-		years = int(number_of_payments / 12)
-		print(f"It will take {years} years and {remainder} months to repay this loan!")
-	elif type_input == "a":
-		print("Enter the loan principal:")
-		loan_input = int(input())
-		print("Enter the number of periods:")
-		n = int(input())
-		print("Enter the loan interest:")
-		i = float(input())
-		orindary_annuity = ordinary_annuity_calculator(loan_input, n , i)
-		print(f"Your monthly payment = {orindary_annuity}")
-	else:
-		print("Enter the annuity payment:")
-		annuity_input = float(input())
-		print("Enter the number of periods:")
-		n = int(input())
-		print("Enter the loan interest:")
-		i = float(input())
-		loan_principal = loan_principal_calculator(annuity_input, n , i)
-		print(f"Your loan principal = {loan_principal}!")
-	    
 
 if __name__ == '__main__':
     loan_calculator()
