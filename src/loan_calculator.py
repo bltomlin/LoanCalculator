@@ -24,13 +24,35 @@ def loan_calculator():
 			number_of_payments = math.ceil(number_of_payments_calculator(int(args.principal), int(args.payment) , float(args.interest)))
 			remainder = int(number_of_payments % 12)
 			years = int(number_of_payments / 12)
-			print(f"It will take {years} years and {remainder} months to repay this loan!")
+			all_payments = int(args.payment) * number_of_payments
+			overpayment = all_payments - int(args.principal)
+			if remainder != 0:
+				print(f"It will take {years} years and {remainder} months to repay this loan!")
+				print(f"Overpayment = {overpayment}")
+			else:
+				print(f"It will take {years} years to repay this loan!")
+				print(f"Overpayment = {overpayment}")
 		elif args.principal != None and args.periods != None and args.interest != None:
 			orindary_annuity = ordinary_annuity_calculator(int(args.principal), int(args.periods) , float(args.interest))
-			print(f"Your monthly payment = {orindary_annuity}")
-		else:
+			print(f"Your anuity payment = {orindary_annuity}!")
+			all_payments = orindary_annuity * int(args.periods)
+			overpayment = all_payments - int(args.principal)
+			print(f"Overpayment = {overpayment}")
+		elif args.payment != None and args.periods != None and args.interest != None:
 			loan_principal = math.floor(loan_principal_calculator(int(args.payment), int(args.periods) , float(args.interest)))
 			print(f"Your loan principal = {loan_principal}!")
+			total_payment = int(args.payment) * int(args.periods)
+			overpayment = total_payment - loan_principal
+			print(f"Overpayment = {overpayment}")
+		else:
+			print("Incorrect parameters")
+	elif args.type == "diff":
+		if args.principal != None and args.periods != None and args.interest != None:
+			differentiated_payments_calculator(int(args.principal), int(args.periods), float(args.interest))
+		else:
+			print("Incorrect parameters.")
+	else:
+		print("Error")
 
 
 if __name__ == '__main__':
